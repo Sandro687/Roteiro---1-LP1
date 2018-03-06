@@ -1,20 +1,22 @@
 #include <stdio.h>
 
-    int fib(int n){
+int fibonacci(int num){
 
-      int i, fib1 = 1, fib2 = 1, soma;
-      for (i = 3; i <= n; i = i + 1){
-        soma = fib1 + fib2;
-        fib1 = fib2;
-        fib2 = soma;
-     }
-     return fib2;
-   }
+   if(num == 1 || num == 2)
+       return 1;
+   else
+       return fibonacci(num - 1) + fibonacci(num - 2);
+}
 
-   int main(void){
+int main(void){
 
-     int n;
-     scanf("%d", &n);
-     printf("%d\n", fib(n));
-     return 0;
-   }
+   int n,i;
+
+   printf("Digite a quantidade de termos da sequência de Fibonacci: ");
+   scanf("%d", &n);
+   printf("A sequência de Fibonacci e: \n");
+
+   for(i = 0;i < n;i++){
+       printf("%d ", fibonacci(i + 1));
+    }
+}
